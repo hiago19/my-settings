@@ -17,6 +17,81 @@ fi
 # FUNÇÃO PRINCIPAL
 # =============================================================================
 
+# =============================================================================
+# FUNÇÕES AUXILIARES
+# =============================================================================
+
+# Instalar FZF oficial da versão mais recente
+install_official_fzf() {
+    local description="FZF (fuzzy finder) - Versão Oficial"
+    
+    print_step "Verificando $description"
+    
+    # Verificar se já está instalado via método oficial
+    if command_exists fzf && [[ -d "$HOME/.fzf" ]] && [[ -f "$HOME/.fzf/install" ]]; then
+        local current_version=$(fzf --version 2>/dev/null | cut -d' ' -f1)
+        print_info "✅ FZF já está instalado via método oficial (versão: ${current_version:-unknown})"
+        
+        # Verificar se é uma versão recente (>= 0.40.0 suporta --zsh)
+        local version_number=$(echo "$current_version" | grep -o '^[0-9]\+\.[0-9]\+' | head -1)
+        if [[ -n "$version_number" ]]; then
+            local major=$(echo "$version_number" | cut -d. -f1)
+            local minor=$(echo "$version_number" | cut -d. -f2)
+            
+            # Versão >= 0.40 suporta --zsh
+            if [[ "$major" -gt 0 ]] || [[ "$major" -eq 0 && "$minor" -ge 40 ]]; then
+                print_info "⏭️  Versão suporta todas as funcionalidades modernas (--zsh)"
+                return 0
+            else
+                print_info "🔄 Versão antiga detectada, atualizando..."
+            fi
+        else
+            print_info "🔄 Atualizando para garantir compatibilidade..."
+        fi
+    fi
+    
+    print_progress "Instalando/Atualizando $description"
+    
+    # Remover instalação via apt se existir (pode causar conflito)
+    if package_installed "fzf"; then
+        print_info "🔄 Removendo versão apt do FZF para usar versão oficial..."
+        sudo apt remove -y fzf >/dev/null 2>&1
+    fi
+    
+    # Clonar ou atualizar repositório oficial
+    if [[ -d "$HOME/.fzf" ]]; then
+        print_info "📁 Atualizando repositório existente..."
+        cd "$HOME/.fzf" && git pull >/dev/null 2>&1
+    else
+        print_info "📥 Clonando repositório oficial do FZF..."
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf" >/dev/null 2>&1
+    fi
+    
+    # Executar instalação oficial
+    if [[ -d "$HOME/.fzf" ]]; then
+        print_info "⚙️  Executando instalação oficial..."
+        "$HOME/.fzf/install" --all >/dev/null 2>&1
+        
+        # Verificar se foi instalado com sucesso
+        if command_exists fzf; then
+            local installed_version=$(fzf --version 2>/dev/null | cut -d' ' -f1)
+            print_success "✅ $description instalado com sucesso (versão: ${installed_version:-unknown})"
+            print_info "💡 FZF instalado em ~/.fzf com suporte completo ao --zsh"
+            return 0
+        else
+            print_error "❌ Instalação falhou - FZF não está disponível"
+            return 1
+        fi
+    else
+        print_error "❌ Falha ao clonar repositório do FZF"
+        return 1
+    fi
+}
+
+# =============================================================================
+# FUNÇÃO PRINCIPAL
+# =============================================================================
+
 main() {
     print_module_banner "SETUP TERMINAL COMPLETO" "🚀"
     
@@ -102,7 +177,7 @@ main() {
     install_apt_package "htop" "Htop (monitor de sistema)"
     install_apt_package "neofetch" "Neofetch (informações do sistema)"
     install_apt_package "bat" "Bat (cat melhorado)"
-    install_apt_package "fzf" "FZF (fuzzy finder)"
+    install_official_fzf
     
     # Definir ZSH como shell padrão
     if [[ "$SHELL" != "$(which zsh)" ]]; then

@@ -41,6 +41,25 @@ Este projeto usa um sistema de configuração baseado em **variáveis de ambient
    ./scripts/setup.sh
    ```
 
+## 🔄 Versões Mais Recentes
+
+O sistema foi **otimizado para sempre instalar as versões mais recentes** das ferramentas, garantindo compatibilidade e recursos modernos:
+
+### 🛠️ **Instalação Oficial:**
+
+- **FZF**: Instalado via `git clone` do repositório oficial _(suporte completo ao `--zsh`)_
+- **Starship**: Instalado via script oficial _(sempre a versão mais recente)_
+- **Oh My Zsh**: Instalado via script oficial do GitHub
+
+### ⚡ **Benefícios:**
+
+- ✅ **Compatibilidade total** com recursos modernos
+- ✅ **Bug fixes** e melhorias de segurança
+- ✅ **Performance otimizada** das ferramentas
+- ✅ **Suporte a novas funcionalidades** (como `fzf --zsh`)
+
+> **Nota**: O sistema detecta automaticamente se você já tem uma versão oficial instalada e evita reinstalações desnecessárias.
+
 ### 📋 Principais Configurações
 
 | Variável                   | Descrição                              | Padrão              |
@@ -309,22 +328,8 @@ curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/mo
 
 # Ou apenas instalar extensões
 ./scripts/tools/install-extensions.sh
-```
 
-````
-
-### 🎯 Setup Individual
-
-#### Terminal (WSL2 + ZSH)
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/modules/terminal.sh | bash
-````
-
-#### VS Code
-
-```bash
-# Instalar extensões
+# Ou Instalar extensões via wget
 wget -O - https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/tools/install-extensions.sh | bash
 
 # Aplicar configurações
