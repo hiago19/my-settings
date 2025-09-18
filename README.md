@@ -247,48 +247,46 @@ eval "$(fzf --zsh)"           # Fuzzy finder
 
 ```
 my-settings/
-├── 📄 README.md                    # Este arquivo
-├── 📄 LICENSE                      # Licença MIT
-├── 📄 .gitignore                   # Ignorar arquivos desnecessários
-├── 📄 .env.example                 # Template com 63 variáveis de configuração
-├── 📄 .env                         # Suas configurações personalizadas
-├── 📁 .github/                     # Instruções para IA e automação
-│   └── 📖 copilot-instructions.md  # Guia para AI coding agents
-├── 📁 docs/                        # Documentação detalhada
-│   ├── 📖 TERMINAL_SETUP.md        # Setup Terminal/WSL2
-│   ├── 📖 VSCODE_SETUP.md          # Setup VS Code
-│   ├── 📖 SUBLIME_TEXT_SETUP.md    # Setup Sublime Text
-│   ├── 📖 TROUBLESHOOTING.md       # Solução de problemas
-│   └── 📖 USEFUL_APPS.md           # Apps recomendados
-├── 📁 scripts/                     # Sistema modular de scripts
-│   ├── 🎯 setup.sh                 # Interface principal (menu interativo)
-│   ├── 📁 core/                    # Sistema base robusto
-│   │   ├── 🏗️ bootstrap.sh         # Orquestrador de dependências
-│   │   ├── 🎨 colors.sh            # Sistema de cores e UI
-│   │   ├── 🔧 utils.sh             # Funções utilitárias
-│   │   ├── ⚙️ env-loader.sh        # Carregador .env inteligente
-│   │   └── 📂 paths.sh             # Gerenciador de caminhos
-│   ├── 📁 modules/                 # Módulos de configuração
-│   │   ├── 🖥️ terminal.sh          # Setup terminal completo
-│   │   ├── � vscode.sh            # Setup VS Code completo
-│   │   └── � complete.sh          # Setup geral completo
-│   └── 📁 tools/                   # Ferramentas utilitárias
-│       ├── � backup-configs.sh    # Backup automático
-│       ├── � restore-configs.sh   # Restauração
-│       ├── � validate-system.sh   # Validação do sistema
-│       ├── � install-extensions.sh # Extensões VS Code
-│       └── 🪟 install-dev-apps.ps1 # Apps Windows
-└── 📁 configs/                     # Templates de configuração
-    ├── 📁 git/                     # Configurações Git
-    │   ├── gitconfig               # Config Git global
-    │   └── gitignore_global        # Gitignore global
-    ├── 📁 terminal/                # Configurações Terminal
-    │   ├── zshrc                   # Config ZSH
-    │   └── starship.toml           # Config Starship
-    ├── 📁 vscode/                  # Configurações VS Code
-    │   ├── settings.json           # Settings VS Code
-    │   └── extensions.txt          # Lista de extensões
-    └── 📁 sublime/                 # Configurações Sublime
+├── 📄 README.md                     # Este arquivo
+├── 📄 LICENSE                       # Licença MIT
+├── 📄 .gitignore                    # Ignorar arquivos desnecessários
+├── 📄 .env.example                  # Template com 63 variáveis de configuração
+├── 📄 .env                          # Suas configurações personalizadas
+├── 📁 docs/                         # Documentação detalhada
+│   ├── 📖 TERMINAL_SETUP.md         # Setup Terminal/WSL2
+│   ├── 📖 VSCODE_SETUP.md           # Setup VS Code
+│   ├── 📖 SUBLIME_TEXT_SETUP.md     # Setup Sublime Text
+│   ├── 📖 TROUBLESHOOTING.md        # Solução de problemas
+│   └── 📖 USEFUL_APPS.md            # Apps recomendados
+├── 📁 scripts/                      # Sistema modular de scripts
+│   ├── 🎯 setup.sh                  # Interface principal (menu interativo)
+│   ├── 📁 core/                     # Sistema base robusto
+│   │   ├── 🏗️ bootstrap.sh          # Orquestrador de dependências
+│   │   ├── 🎨 colors.sh             # Sistema de cores e UI
+│   │   ├── 🔧 utils.sh              # Funções utilitárias
+│   │   ├── ⚙️ env-loader.sh         # Carregador .env inteligente
+│   │   └── 📂 paths.sh              # Gerenciador de caminhos
+│   ├── 📁 modules/                  # Módulos de configuração
+│   │   ├── 🖥️ terminal.sh           # Setup terminal completo
+│   │   ├── 🖥️ vscode.sh             # Setup VS Code completo
+│   │   └── 🖥️ complete.sh           # Setup geral completo
+│   └── 📁 tools/                    # Ferramentas utilitárias
+│       ├── ⚙️ backup-configs.sh     # Backup automático
+│       ├── ⚙️ restore-configs.sh    # Restauração
+│       ├── ⚙️ validate-system.sh    # Validação do sistema
+│       ├── ⚙️ install-extensions.sh # Extensões VS Code
+│       └── 🪟 install-dev-apps.ps1  # Apps Windows
+└── 📁 configs/                      # Templates de configuração
+    ├── 📁 git/                      # Configurações Git
+    │   ├── gitconfig                # Config Git global
+    │   └── gitignore_global         # Gitignore global
+    ├── 📁 terminal/                 # Configurações Terminal
+    │   ├── zshrc                    # Config ZSH
+    │   └── starship.toml            # Config Starship
+    ├── 📁 vscode/                   # Configurações VS Code
+    │   ├── settings.json            # Settings VS Code
+    │   └── extensions.txt           # Lista de extensões
+    └── 📁 sublime/                  # Configurações Sublime
         └── sublime-preferences.json # Preferences Sublime
 
 ```
