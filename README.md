@@ -1,79 +1,79 @@
 # 🛠️ My Development Settings
 
-**Setup completo para desenvolvedores** - Configurações, scripts e documentação para configurar rapidamente um ambiente de desenvolvimento profissional.
+**Complete developer setup** - Configurations, scripts, and documentation to quickly set up a professional development environment.
 
 ![GitHub](https://img.shields.io/badge/Windows-WSL2-blue)
 ![GitHub](https://img.shields.io/badge/Terminal-ZSH-green)
 ![GitHub](https://img.shields.io/badge/Editor-VSCode-blue)
 ![GitHub](https://img.shields.io/badge/License-MIT-yellow)
 
-## 🚀 Início Rápido
+## 🚀 Quick Start
 
 ```bash
-# Clonar o repositório
+# Clone the repository
 git clone https://github.com/hiago19/my-settings.git
 cd my-settings
 
-# Setup completo automatizado com menu interativo
+# Complete automated setup with interactive menu
 ./scripts/setup.sh
 ```
 
-## ⚙️ Configuração Personalizada
+## ⚙️ Custom Configuration
 
-Este projeto usa um sistema de configuração baseado em **variáveis de ambiente (.env)** seguindo padrões da indústria.
+This project uses an **environment variables (.env) based configuration system** following industry standards.
 
-### 🔧 Como Personalizar
+### 🔧 How to Customize
 
-1. **Copie o template de configuração:**
+1. **Copy the configuration template:**
 
    ```bash
    cp .env.example .env
    ```
 
-2. **Edite suas configurações:**
+2. **Edit your settings:**
 
    ```bash
-   nano .env  # ou code .env
+   nano .env  # or code .env
    ```
 
-3. **Execute os scripts normalmente:**
+3. **Run scripts normally:**
    ```bash
    ./scripts/setup.sh
    ```
 
-## 🔄 Versões Mais Recentes
+## 🔄 Latest Versions
 
-O sistema foi **otimizado para sempre instalar as versões mais recentes** das ferramentas, garantindo compatibilidade e recursos modernos:
+The system has been **optimized to always install the latest versions** of tools, ensuring compatibility and modern features:
 
-### 🛠️ **Instalação Oficial:**
+### 🛠️ **Official Installation:**
 
-- **FZF**: Instalado via `git clone` do repositório oficial _(suporte completo ao `--zsh`)_
-- **Starship**: Instalado via script oficial _(sempre a versão mais recente)_
-- **Oh My Zsh**: Instalado via script oficial do GitHub
+- **FZF**: Installed via `git clone` from official repository _(full support for `--zsh`)_
+- **Starship**: Installed via official script _(always the latest version)_
+- **Oh My Zsh**: Installed via official GitHub script
 
-### ⚡ **Benefícios:**
+### ⚡ **Benefits:**
 
-- ✅ **Compatibilidade total** com recursos modernos
-- ✅ **Bug fixes** e melhorias de segurança
-- ✅ **Performance otimizada** das ferramentas
-- ✅ **Suporte a novas funcionalidades** (como `fzf --zsh`)
+- ✅ **Full compatibility** with modern features
+- ✅ **Bug fixes** and security improvements
+- ✅ **Optimized performance** of tools
+- ✅ **Support for new functionality** (like `fzf --zsh`)
 
-> **Nota**: O sistema detecta automaticamente se você já tem uma versão oficial instalada e evita reinstalações desnecessárias.
+> **Note**: The system automatically detects if you already have an official version installed and avoids unnecessary reinstallations.
 
-### 📋 Principais Configurações
+### 📋 Main Configuration Variables
 
-| Variável                   | Descrição                              | Padrão              |
-| -------------------------- | -------------------------------------- | ------------------- |
-| `DEV_USER_NAME`            | Seu nome completo                      | "Bruno Hiago"       |
-| `DEV_USER_EMAIL`           | Email para Git                         | "bruno@exemplo.com" |
-| `INSTALL_VSCODE_ESSENTIAL` | Instalar extensões essenciais VS Code  | `true`              |
-| `INSTALL_VSCODE_LANGUAGE`  | Instalar extensões de linguagens       | `true`              |
-| `INSTALL_DOCKER`           | Instalar Docker                        | `true`              |
-| `FAST_MODE`                | Modo rápido (pula instalações pesadas) | `false`             |
+| Variable                   | Description                          | Default             |
+| -------------------------- | ------------------------------------ | ------------------- |
+| `DEV_USER_NAME`            | Your full name                       | "Bruno Hiago"       |
+| `DEV_USER_EMAIL`           | Email for Git                        | "bruno@example.com" |
+| `INSTALL_VSCODE_ESSENTIAL` | Install essential VS Code extensions | `true`              |
+| `INSTALL_VSCODE_LANGUAGE`  | Install language extensions          | `true`              |
+| `INSTALL_DOCKER`           | Install Docker                       | `true`              |
+| `FAST_MODE`                | Fast mode (skip heavy installations) | `false`             |
 
-### 🎯 Exemplos de Personalização
+### 🎯 Customization Examples
 
-**Modo minimalista:**
+**Minimalist mode:**
 
 ```env
 INSTALL_VSCODE_LANGUAGE=false
@@ -82,7 +82,7 @@ INSTALL_DOCKER=false
 FAST_MODE=true
 ```
 
-**Modo desenvolvedor full-stack:**
+**Full-stack developer mode:**
 
 ```env
 INSTALL_VSCODE_ESSENTIAL=true
@@ -91,105 +91,105 @@ INSTALL_VSCODE_TOOLS=true
 INSTALL_VSCODE_ADVANCED=true
 ```
 
-### 🛠️ Utilitários de Configuração
+### 🛠️ Configuration Utilities
 
 ```bash
-# Ver configurações atuais
-./scripts/setup.sh  # Opção 8 do menu
+# View current settings
+./scripts/setup.sh  # Menu option 8
 
-# Editar configurações
-nano .env  # ou code .env
+# Edit settings
+nano .env  # or code .env
 
-# Validar sistema
+# Validate system
 ./scripts/tools/validate-system.sh
 
-# Fazer backup
+# Make backup
 ./scripts/tools/backup-configs.sh
 ```
 
-## 📋 Índice
+## 📋 Table of Contents
 
-- [📖 Documentação Completa](#-documentação-completa)
-- [⚙️ Configurações Incluídas](#️-configurações-incluídas)
-- [🔧 Scripts de Instalação](#-scripts-de-instalação)
-- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
-- [🎯 Instalação Rápida](#-instalação-rápida)
-- [🔗 Links Úteis](#-links-úteis)
+- [📖 Complete Documentation](#-complete-documentation)
+- [⚙️ Included Configurations](#️-included-configurations)
+- [🔧 Installation Scripts](#-installation-scripts)
+- [📁 Project Structure](#-project-structure)
+- [🎯 Quick Installation](#-quick-installation)
+- [🔗 Useful Links](#-useful-links)
 
 ---
 
-## 📖 Documentação Completa
+## 📖 Complete Documentation
 
 ### 🖥️ [Terminal & WSL2 Setup](docs/TERMINAL_SETUP.md)
 
-Configuração completa do ambiente terminal com WSL2, ZSH, Oh My Zsh, Starship e ferramentas CLI essenciais:
+Complete terminal environment setup with WSL2, ZSH, Oh My Zsh, Starship, and essential CLI tools:
 
 - ✅ WSL2 + Ubuntu
 - ✅ ZSH + Oh My Zsh + Starship
-- ✅ Git + SSH configurados
+- ✅ Git + SSH configured
 - ✅ Node.js (NVM) + Python + Docker
-- ✅ Ferramentas CLI: bat, eza, zoxide, fzf, etc.
+- ✅ CLI Tools: bat, eza, zoxide, fzf, etc.
 
 ### 💻 [VS Code Setup](docs/VSCODE_SETUP.md)
 
-Configuração completa do Visual Studio Code para desenvolvimento profissional:
+Complete Visual Studio Code configuration for professional development:
 
-- ✅ 40+ extensões essenciais
-- ✅ Settings.json otimizado
-- ✅ Atalhos personalizados
-- ✅ Snippets para múltiplas linguagens
-- ✅ Themes e personalização
+- ✅ 40+ essential extensions
+- ✅ Optimized settings.json
+- ✅ Custom shortcuts
+- ✅ Snippets for multiple languages
+- ✅ Themes and customization
 
 ### 📝 [Sublime Text Setup](docs/SUBLIME_TEXT_SETUP.md)
 
-Configuração avançada do Sublime Text com pacotes e customizações:
+Advanced Sublime Text configuration with packages and customizations:
 
-- ✅ Package Control + pacotes essenciais
-- ✅ Configurações otimizadas
-- ✅ Atalhos avançados
-- ✅ Snippets personalizados
+- ✅ Package Control + essential packages
+- ✅ Optimized settings
+- ✅ Advanced shortcuts
+- ✅ Custom snippets
 - ✅ Build systems
 
-### 🚀 [Apps Úteis](docs/USEFUL_APPS.md)
+### 🚀 [Useful Apps](docs/USEFUL_APPS.md)
 
-Lista curada de aplicativos essenciais para desenvolvedores:
+Curated list of essential applications for developers:
 
-- ✅ Ferramentas de produtividade (PowerToys, Notion)
-- ✅ Desenvolvimento (Docker, Postman, DBeaver)
+- ✅ Productivity tools (PowerToys, Notion)
+- ✅ Development (Docker, Postman, DBeaver)
 - ✅ Design (Figma, OBS Studio)
-- ✅ Scripts de instalação automática
+- ✅ Automatic installation scripts
 
 ---
 
-## ⚙️ Configurações Incluídas
+## ⚙️ Included Configurations
 
 ### 🐚 Terminal (ZSH)
 
 ```bash
-# Aliases otimizados
+# Optimized aliases
 alias cat='batcat'
 alias cd="z"
 alias ls='eza -1 --color=always --git --icons --group-directories-first'
 alias ll='eza -1 --tree --level=2 --icons --color=always --git --group-directories-first'
 
-# Ferramentas integradas
-eval "$(starship init zsh)"    # Prompt moderno
-eval "$(zoxide init zsh)"      # cd inteligente
+# Integrated tools
+eval "$(starship init zsh)"    # Modern prompt
+eval "$(zoxide init zsh)"      # Smart cd
 eval "$(fzf --zsh)"           # Fuzzy finder
 ```
 
-### 💻 VS Code (Principais Extensões)
+### 💻 VS Code (Main Extensions)
 
-- **AI & Produtividade:** GitHub Copilot, GitHub Copilot Chat
+- **AI & Productivity:** GitHub Copilot, GitHub Copilot Chat
 - **Themes:** GitHub Theme, VSCode Icons, Peacock
 - **Web Dev:** Prettier, ESLint, Tailwind CSS, Live Server
 - **Languages:** Python, TypeScript, React, Vue
 - **Tools:** GitLens, Docker, REST Client, SonarLint
 
-### 📝 Sublime Text (Pacotes Essenciais)
+### 📝 Sublime Text (Essential Packages)
 
 - **Visual:** A File Icon, Material Theme, BracketHighlighter
-- **Produtividade:** Emmet, SideBarEnhancements, GitGutter
+- **Productivity:** Emmet, SideBarEnhancements, GitGutter
 - **Development:** SublimeLinter, Pretty JSON, Terminal
 
 ### 🎯 Windows Terminal
@@ -206,147 +206,147 @@ eval "$(fzf --zsh)"           # Fuzzy finder
 
 ---
 
-## 🔧 Scripts de Instalação
+## 🔧 Installation Scripts
 
-### ⚙️ Setup Completo
+### ⚙️ Complete Setup
 
 ```bash
-# Setup completo do ambiente (Menu interativo)
+# Complete environment setup (Interactive menu)
 ./scripts/setup.sh
 ```
 
 ### 🖥️ Terminal Setup
 
 ```bash
-# Setup completo do terminal (ZSH + Oh My Zsh + Starship)
+# Complete terminal setup (ZSH + Oh My Zsh + Starship)
 ./scripts/modules/terminal.sh
 ```
 
 ### 💻 VS Code Setup
 
 ```bash
-# Setup completo do VS Code (extensões + configurações)
+# Complete VS Code setup (extensions + configurations)
 ./scripts/modules/vscode.sh
 ```
 
 ```bash
-# Instalar apenas extensões do VS Code
+# Install only VS Code extensions
 ./scripts/tools/install-extensions.sh
 ```
 
-### 🚀 Apps Windows
+### 🚀 Windows Apps
 
 ```powershell
-# Instalar apps essenciais (PowerShell como Admin)
+# Install essential apps (PowerShell as Admin)
 ./scripts/tools/install-dev-apps.ps1
 ```
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 my-settings/
-├── 📄 README.md                     # Este arquivo
-├── 📄 LICENSE                       # Licença MIT
-├── 📄 .gitignore                    # Ignorar arquivos desnecessários
-├── 📄 .env.example                  # Template com 63 variáveis de configuração
-├── 📄 .env                          # Suas configurações personalizadas
-├── 📁 docs/                         # Documentação detalhada
-│   ├── 📖 TERMINAL_SETUP.md         # Setup Terminal/WSL2
-│   ├── 📖 VSCODE_SETUP.md           # Setup VS Code
-│   ├── 📖 SUBLIME_TEXT_SETUP.md     # Setup Sublime Text
-│   ├── 📖 TROUBLESHOOTING.md        # Solução de problemas
-│   └── 📖 USEFUL_APPS.md            # Apps recomendados
-├── 📁 scripts/                      # Sistema modular de scripts
-│   ├── 🎯 setup.sh                  # Interface principal (menu interativo)
-│   ├── 📁 core/                     # Sistema base robusto
-│   │   ├── 🏗️ bootstrap.sh          # Orquestrador de dependências
-│   │   ├── 🎨 colors.sh             # Sistema de cores e UI
-│   │   ├── 🔧 utils.sh              # Funções utilitárias
-│   │   ├── ⚙️ env-loader.sh         # Carregador .env inteligente
-│   │   └── 📂 paths.sh              # Gerenciador de caminhos
-│   ├── 📁 modules/                  # Módulos de configuração
-│   │   ├── 🖥️ terminal.sh           # Setup terminal completo
-│   │   ├── 🖥️ vscode.sh             # Setup VS Code completo
-│   │   └── 🖥️ complete.sh           # Setup geral completo
-│   └── 📁 tools/                    # Ferramentas utilitárias
-│       ├── ⚙️ backup-configs.sh     # Backup automático
-│       ├── ⚙️ restore-configs.sh    # Restauração
-│       ├── ⚙️ validate-system.sh    # Validação do sistema
-│       ├── ⚙️ install-extensions.sh # Extensões VS Code
-│       └── 🪟 install-dev-apps.ps1  # Apps Windows
-└── 📁 configs/                      # Templates de configuração
-    ├── 📁 git/                      # Configurações Git
-    │   ├── gitconfig                # Config Git global
-    │   └── gitignore_global         # Gitignore global
-    ├── 📁 terminal/                 # Configurações Terminal
-    │   ├── zshrc                    # Config ZSH
-    │   └── starship.toml            # Config Starship
-    ├── 📁 vscode/                   # Configurações VS Code
-    │   ├── settings.json            # Settings VS Code
-    │   └── extensions.txt           # Lista de extensões
-    └── 📁 sublime/                  # Configurações Sublime
-        └── sublime-preferences.json # Preferences Sublime
+├── 📄 README.md                     # This file
+├── 📄 LICENSE                       # MIT License
+├── 📄 .gitignore                    # Ignore unnecessary files
+├── 📄 .env.example                  # Template with 63 configuration variables
+├── 📄 .env                          # Your custom settings
+├── 📁 docs/                         # Detailed documentation
+│   ├── 📖 TERMINAL_SETUP.md         # Terminal/WSL2 Setup
+│   ├── 📖 VSCODE_SETUP.md           # VS Code Setup
+│   ├── 📖 SUBLIME_TEXT_SETUP.md     # Sublime Text Setup
+│   ├── 📖 TROUBLESHOOTING.md        # Troubleshooting
+│   └── 📖 USEFUL_APPS.md            # Recommended apps
+├── 📁 scripts/                      # Modular script system
+│   ├── 🎯 setup.sh                  # Main interface (interactive menu)
+│   ├── 📁 core/                     # Robust base system
+│   │   ├── 🏗️ bootstrap.sh          # Dependency orchestrator
+│   │   ├── 🎨 colors.sh             # Color system and UI
+│   │   ├── 🔧 utils.sh              # Utility functions
+│   │   ├── ⚙️ env-loader.sh         # Smart .env loader
+│   │   └── 📂 paths.sh              # Path manager
+│   ├── 📁 modules/                  # Configuration modules
+│   │   ├── 🖥️ terminal.sh           # Complete terminal setup
+│   │   ├── 🖥️ vscode.sh             # Complete VS Code setup
+│   │   └── 🖥️ complete.sh           # Complete general setup
+│   └── 📁 tools/                    # Utility tools
+│       ├── ⚙️ backup-configs.sh     # Automatic backup
+│       ├── ⚙️ restore-configs.sh    # Restoration
+│       ├── ⚙️ validate-system.sh    # System validation
+│       ├── ⚙️ install-extensions.sh # VS Code extensions
+│       └── 🪟 install-dev-apps.ps1  # Windows apps
+└── 📁 configs/                      # Configuration templates
+    ├── 📁 git/                      # Git configurations
+    │   ├── gitconfig                # Global Git config
+    │   └── gitignore_global         # Global gitignore
+    ├── 📁 terminal/                 # Terminal configurations
+    │   ├── zshrc                    # ZSH config
+    │   └── starship.toml            # Starship config
+    ├── 📁 vscode/                   # VS Code configurations
+    │   ├── settings.json            # VS Code settings
+    │   └── extensions.txt           # Extensions list
+    └── 📁 sublime/                  # Sublime configurations
+        └── sublime-preferences.json # Sublime preferences
 
 ```
 
 ---
 
-## 🎯 Instalação Rápida
+## 🎯 Quick Installation
 
-### 🔥 Setup Completo (Recomendado)
+### 🔥 Complete Setup (Recommended)
 
 ```bash
 git clone https://github.com/hiago19/my-settings.git
 cd my-settings
 
-# 2. Executar setup completo
+# 2. Run complete setup
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
 
-### 🎯 Setup Individual
+### 🎯 Individual Setup
 
 #### Terminal (WSL2 + ZSH)
 
 ```bash
-# Executar localmente
+# Run locally
 ./scripts/modules/terminal.sh
 
-# Ou via curl
+# Or via curl
 curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/modules/terminal.sh | bash
 ```
 
 #### VS Code
 
 ```bash
-# Configuração completa do VS Code
+# Complete VS Code configuration
 ./scripts/modules/vscode.sh
 
-# Ou apenas instalar extensões
+# Or just install extensions
 ./scripts/tools/install-extensions.sh
 
-# Ou Instalar extensões via wget
+# Or install extensions via wget
 wget -O - https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/tools/install-extensions.sh | bash
 
-# Aplicar configurações
+# Apply settings
 curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/configs/vscode-settings.json -o ~/.config/Code/User/settings.json
 ```
 
-#### Apps Windows
+#### Windows Apps
 
 ```powershell
-# PowerShell como Administrador
+# PowerShell as Administrator
 Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/install-dev-apps.ps1'))
 ```
 
 ---
 
-## 🔄 Atualização
+## 🔄 Updates
 
-### 🆙 Atualizar Configurações
+### 🆙 Update Settings
 
 ```bash
 cd my-settings
@@ -354,81 +354,81 @@ git pull origin main
 ./scripts/update-configs.sh
 ```
 
-### 🔄 Sincronizar com Repositório
+### 🔄 Sync with Repository
 
 ```bash
-# Fazer backup das configurações atuais
+# Backup current settings
 ./scripts/backup-current-configs.sh
 
-# Aplicar configurações atualizadas
+# Apply updated settings
 ./scripts/apply-configs.sh
 ```
 
 ---
 
-## 🎨 Personalização
+## 🎨 Customization
 
-### ⚙️ Modificar Configurações ZSH
+### ⚙️ Modify ZSH Settings
 
 ```bash
-# Editar arquivo de configuração
+# Edit configuration file
 nano ~/.zshrc
 
-# Recarregar configurações
+# Reload settings
 source ~/.zshrc
 ```
 
-### 🎨 Customizar VS Code
+### 🎨 Customize VS Code
 
-1. Abra VS Code
+1. Open VS Code
 2. `Ctrl+Shift+P` → "Preferences: Open Settings (JSON)"
-3. Modifique conforme necessário
-4. Salve e reinicie
+3. Modify as needed
+4. Save and restart
 
-### 🔧 Adicionar Apps
+### 🔧 Add Apps
 
 ```bash
-# Editar lista de apps
+# Edit apps list
 nano scripts/install-dev-apps.ps1
 
-# Adicionar novos apps à lista
+# Add new apps to the list
 ```
 
 ---
 
-## 🤝 Contribuição
+## 🤝 Contributing
 
-### 📝 Como Contribuir
+### 📝 How to Contribute
 
-1. Faça fork do projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+1. Fork the project
+2. Create a branch for your feature
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-### 💡 Sugestões
+### 💡 Suggestions
 
-- Novos apps úteis
-- Melhorias nas configurações
-- Correções de bugs
-- Documentação adicional
-
----
-
-## 📱 Compatibilidade
-
-| Sistema              | Status                    | Versão Testada    |
-| -------------------- | ------------------------- | ----------------- |
-| Windows 10/11 + WSL2 | ✅ Totalmente Suportado   | WSL2 Ubuntu 22.04 |
-| Windows 10/11        | ✅ Parcialmente Suportado | Apps e VS Code    |
-| Linux Ubuntu         | ✅ Suportado              | 20.04+            |
-| macOS                | ⚠️ Não testado            | -                 |
+- New useful apps
+- Configuration improvements
+- Bug fixes
+- Additional documentation
 
 ---
 
-## 🔗 Links Úteis
+## 📱 Compatibility
 
-### 📚 Documentação Oficial
+| System               | Status                 | Tested Version    |
+| -------------------- | ---------------------- | ----------------- |
+| Windows 10/11 + WSL2 | ✅ Fully Supported     | WSL2 Ubuntu 22.04 |
+| Windows 10/11        | ✅ Partially Supported | Apps and VS Code  |
+| Linux Ubuntu         | ✅ Supported           | 20.04+            |
+| macOS                | ⚠️ Not tested          | -                 |
+
+---
+
+## 🔗 Useful Links
+
+### 📚 Official Documentation
 
 - [WSL2 Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
 - [Oh My Zsh](https://ohmyz.sh/)
@@ -436,13 +436,13 @@ nano scripts/install-dev-apps.ps1
 - [VS Code](https://code.visualstudio.com/docs)
 - [Sublime Text](https://www.sublimetext.com/docs/)
 
-### 🛠️ Ferramentas
+### 🛠️ Tools
 
 - [Windows Terminal](https://github.com/microsoft/terminal)
 - [PowerToys](https://github.com/microsoft/PowerToys)
 - [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 
-### 🎯 Recursos Adicionais
+### 🎯 Additional Resources
 
 - [Awesome WSL](https://github.com/sirredbeard/Awesome-WSL)
 - [Awesome Zsh](https://github.com/unixorn/awesome-zsh-plugins)
@@ -450,13 +450,13 @@ nano scripts/install-dev-apps.ps1
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+This project is under the MIT license. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Bruno Hiago**
 
@@ -465,10 +465,10 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 
 ---
 
-## ⭐ Apoie o Projeto
+## ⭐ Support the Project
 
-Se este projeto te ajudou, considere dar uma ⭐ no repositório!
+If this project helped you, consider giving it a ⭐ on the repository!
 
 ---
 
-**🚀 Happy Coding! Seu ambiente de desenvolvimento está pronto para qualquer desafio!**
+**🚀 Happy Coding! Your development environment is ready for any challenge!**
