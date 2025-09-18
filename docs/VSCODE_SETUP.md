@@ -1076,8 +1076,8 @@ git clone https://github.com/hiago19/my-settings.git
 cd my-settings
 
 # 2. Instalar extensões
-chmod +x vscode/install-extensions.sh
-./vscode/install-extensions.sh
+chmod +x scripts/tools/install-extensions.sh
+./scripts/tools/install-extensions.sh
 
 # 3. Copiar configurações (backup automático)
 cp ~/.config/Code/User/settings.json ~/.config/Code/User/settings.json.backup
@@ -1105,7 +1105,7 @@ curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/configs/vs
 curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/configs/vscode-keybindings.json -o ~/.config/Code/User/keybindings.json
 
 # Atualizar extensões
-./vscode/install-extensions.sh
+./scripts/tools/install-extensions.sh
 
 print_status "Configurações atualizadas com sucesso!"
 ```

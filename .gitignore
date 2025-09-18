@@ -1,0 +1,73 @@
+# =============================================================================
+# GITIGNORE - MY-SETTINGS
+# =============================================================================
+
+# Configurações pessoais (não commitadas)
+.env
+
+# Backups locais
+*.backup
+*.backup.*
+backups/
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+.cache/
+
+# Configurações específicas do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js (se houver)
+node_modules/
+npm-debug.log*
+
+# Python (se houver)
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# WSL específico
+.wslconfig.local
+
+# SSH keys e certificados
+*.pem
+*.key
+*.crt
+id_rsa*
+id_ed25519*
+
+# Configurações locais override
+*local
+*.local
+.local/
+
+# GitHub
+.github
+
+# =============================================================================
+# IMPORTANTE:
+# 
+# ✅ COMMITADO (versionado):
+#    - .env.example (template)
+#    - scripts/
+#    - docs/
+#    - configs/ (exceto arquivos .local)
+#
+# ❌ NÃO COMMITADO (ignorado):
+#    - .env (configurações pessoais)
+#    - backups/
+#    - arquivos *.local
+# =============================================================================

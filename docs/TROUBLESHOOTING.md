@@ -600,7 +600,7 @@ rm ~/.zshrc
 rm ~/.config/starship.toml
 
 # Reinstalar tudo
-curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/setup-complete.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/setup.sh | bash
 ```
 
 ### 🔍 Diagnóstico Completo

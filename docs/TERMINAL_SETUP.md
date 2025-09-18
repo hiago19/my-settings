@@ -583,7 +583,7 @@ O arquivo `settings.json` já está configurado, mas aqui estão as melhorias re
 
 ### 🚀 Setup Completo
 
-Criar arquivo `setup-terminal.sh`:
+Criar arquivo `terminal.sh`:
 
 ```bash
 #!/bin/bash
@@ -733,13 +733,13 @@ print_warning "3. Configurar Git com seus dados pessoais"
 
 ```bash
 # Baixar e executar
-curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/setup-terminal.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/modules/terminal.sh | bash
 
 # Ou clonar repositório e executar
 git clone https://github.com/hiago19/my-settings.git
 cd my-settings
-chmod +x scripts/setup-terminal.sh
-./scripts/setup-terminal.sh
+chmod +x scripts/modules/terminal.sh
+./scripts/modules/terminal.sh
 ```
 
 ---

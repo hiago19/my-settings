@@ -111,6 +111,8 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
 
+  "cSpell.language": "en,pt,pt_BR",
+
   "todo-tree.general.tags": [
     "BUG",
     "HACK",

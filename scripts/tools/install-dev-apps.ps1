@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# install-windows-apps.sh - Script para instalar aplicativos no Windows via winget
+# install-dev-apps.sh - Script para instalar aplicativos no Windows via winget
 # Este script deve ser executado no PowerShell do Windows
 # Autor: Bruno Hiago
 # Versão: 1.0
 
 # NOTA: Este é um script para ser executado no Windows PowerShell, não no WSL
-# Para executar: .\install-windows-apps.ps1
+# Para executar: .\install-dev-apps.ps1
 
 $apps = @{
     "Essenciais" = @(

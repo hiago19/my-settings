@@ -14,9 +14,78 @@
 git clone https://github.com/hiago19/my-settings.git
 cd my-settings
 
-# Setup completo automatizado
-chmod +x scripts/setup-complete.sh
-./scripts/setup-complete.sh
+# Setup completo automatizado com menu interativo
+./scripts/setup.sh
+```
+
+## ⚙️ Configuração Personalizada
+
+Este projeto usa um sistema de configuração baseado em **variáveis de ambiente (.env)** seguindo padrões da indústria.
+
+### 🔧 Como Personalizar
+
+1. **Copie o template de configuração:**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Edite suas configurações:**
+
+   ```bash
+   nano .env  # ou code .env
+   ```
+
+3. **Execute os scripts normalmente:**
+   ```bash
+   ./scripts/setup.sh
+   ```
+
+### 📋 Principais Configurações
+
+| Variável                   | Descrição                              | Padrão              |
+| -------------------------- | -------------------------------------- | ------------------- |
+| `DEV_USER_NAME`            | Seu nome completo                      | "Bruno Hiago"       |
+| `DEV_USER_EMAIL`           | Email para Git                         | "bruno@exemplo.com" |
+| `INSTALL_VSCODE_ESSENTIAL` | Instalar extensões essenciais VS Code  | `true`              |
+| `INSTALL_VSCODE_LANGUAGE`  | Instalar extensões de linguagens       | `true`              |
+| `INSTALL_DOCKER`           | Instalar Docker                        | `true`              |
+| `FAST_MODE`                | Modo rápido (pula instalações pesadas) | `false`             |
+
+### 🎯 Exemplos de Personalização
+
+**Modo minimalista:**
+
+```env
+INSTALL_VSCODE_LANGUAGE=false
+INSTALL_VSCODE_TOOLS=false
+INSTALL_DOCKER=false
+FAST_MODE=true
+```
+
+**Modo desenvolvedor full-stack:**
+
+```env
+INSTALL_VSCODE_ESSENTIAL=true
+INSTALL_VSCODE_LANGUAGE=true
+INSTALL_VSCODE_TOOLS=true
+INSTALL_VSCODE_ADVANCED=true
+```
+
+### 🛠️ Utilitários de Configuração
+
+```bash
+# Ver configurações atuais
+./scripts/setup.sh  # Opção 8 do menu
+
+# Editar configurações
+nano .env  # ou code .env
+
+# Validar sistema
+./scripts/tools/validate-system.sh
+
+# Fazer backup
+./scripts/tools/backup-configs.sh
 ```
 
 ## 📋 Índice
@@ -120,25 +189,37 @@ eval "$(fzf --zsh)"           # Fuzzy finder
 
 ## 🔧 Scripts de Instalação
 
+### ⚙️ Setup Completo
+
+```bash
+# Setup completo do ambiente (Menu interativo)
+./scripts/setup.sh
+```
+
 ### 🖥️ Terminal Setup
 
 ```bash
-# Setup completo do terminal
-curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/setup-terminal.sh | bash
+# Setup completo do terminal (ZSH + Oh My Zsh + Starship)
+./scripts/modules/terminal.sh
 ```
 
 ### 💻 VS Code Setup
 
 ```bash
-# Instalar extensões do VS Code
-curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/vscode/install-extensions.sh | bash
+# Setup completo do VS Code (extensões + configurações)
+./scripts/modules/vscode.sh
+```
+
+```bash
+# Instalar apenas extensões do VS Code
+./scripts/tools/install-extensions.sh
 ```
 
 ### 🚀 Apps Windows
 
 ```powershell
 # Instalar apps essenciais (PowerShell como Admin)
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/install-dev-apps.ps1'))
+./scripts/tools/install-dev-apps.ps1
 ```
 
 ---
@@ -148,28 +229,48 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercon
 ```
 my-settings/
 ├── 📄 README.md                    # Este arquivo
+├── 📄 LICENSE                      # Licença MIT
+├── 📄 .gitignore                   # Ignorar arquivos desnecessários
+├── 📄 .env.example                 # Template com 63 variáveis de configuração
+├── 📄 .env                         # Suas configurações personalizadas
+├── 📁 .github/                     # Instruções para IA e automação
+│   └── 📖 copilot-instructions.md  # Guia para AI coding agents
 ├── 📁 docs/                        # Documentação detalhada
 │   ├── 📖 TERMINAL_SETUP.md        # Setup Terminal/WSL2
 │   ├── 📖 VSCODE_SETUP.md          # Setup VS Code
 │   ├── 📖 SUBLIME_TEXT_SETUP.md    # Setup Sublime Text
 │   ├── 📖 TROUBLESHOOTING.md       # Solução de problemas
 │   └── 📖 USEFUL_APPS.md           # Apps recomendados
-├── 📁 scripts/                     # Scripts de instalação
-│   ├── 🔧 setup-terminal.sh        # Setup terminal completo
-│   ├── 🔧 setup-vscode.sh          # Setup VS Code completo
-│   ├── 🔧 setup-complete.sh        # Setup tudo
-│   ├── 🔧 backup-configs.sh        # Backup das configurações
-│   ├── 🔧 restore-configs.sh       # Restaurar configurações
-│   ├── 🔧 install-extensions.sh    # Instalar extensões VS Code
-│   └── 🔧 install-windows-apps.ps1 # Apps Windows
-└── 📁 configs/                     # Arquivos de configuração
-    ├── ⚙️ .zshrc                   # Configuração ZSH
-    ├── ⚙️ starship.toml            # Configuração Starship
-    ├── ⚙️ extensions.txt           # Lista de extensões VS Code
-    ├── ⚙️ gitconfig                # Configuração Git
-    ├── ⚙️ gitignore_global         # Git ignore global
-    ├── ⚙️ vscode-settings.json     # Settings VS Code
-    └── ⚙️ sublime-preferences.json # Configurações Sublime
+├── 📁 scripts/                     # Sistema modular de scripts
+│   ├── 🎯 setup.sh                 # Interface principal (menu interativo)
+│   ├── 📁 core/                    # Sistema base robusto
+│   │   ├── 🏗️ bootstrap.sh         # Orquestrador de dependências
+│   │   ├── 🎨 colors.sh            # Sistema de cores e UI
+│   │   ├── 🔧 utils.sh             # Funções utilitárias
+│   │   ├── ⚙️ env-loader.sh        # Carregador .env inteligente
+│   │   └── 📂 paths.sh             # Gerenciador de caminhos
+│   ├── 📁 modules/                 # Módulos de configuração
+│   │   ├── 🖥️ terminal.sh          # Setup terminal completo
+│   │   ├── � vscode.sh            # Setup VS Code completo
+│   │   └── � complete.sh          # Setup geral completo
+│   └── 📁 tools/                   # Ferramentas utilitárias
+│       ├── � backup-configs.sh    # Backup automático
+│       ├── � restore-configs.sh   # Restauração
+│       ├── � validate-system.sh   # Validação do sistema
+│       ├── � install-extensions.sh # Extensões VS Code
+│       └── 🪟 install-dev-apps.ps1 # Apps Windows
+└── 📁 configs/                     # Templates de configuração
+    ├── 📁 git/                     # Configurações Git
+    │   ├── gitconfig               # Config Git global
+    │   └── gitignore_global        # Gitignore global
+    ├── 📁 terminal/                # Configurações Terminal
+    │   ├── zshrc                   # Config ZSH
+    │   └── starship.toml           # Config Starship
+    ├── 📁 vscode/                  # Configurações VS Code
+    │   ├── settings.json           # Settings VS Code
+    │   └── extensions.txt          # Lista de extensões
+    └── 📁 sublime/                 # Configurações Sublime
+        └── sublime-preferences.json # Preferences Sublime
 
 ```
 
@@ -180,13 +281,12 @@ my-settings/
 ### 🔥 Setup Completo (Recomendado)
 
 ```bash
-# 1. Clonar repositório
 git clone https://github.com/hiago19/my-settings.git
 cd my-settings
 
 # 2. Executar setup completo
-chmod +x scripts/setup-complete.sh
-./scripts/setup-complete.sh
+chmod +x scripts/setup.sh
+./scripts/setup.sh
 ```
 
 ### 🎯 Setup Individual
@@ -194,14 +294,38 @@ chmod +x scripts/setup-complete.sh
 #### Terminal (WSL2 + ZSH)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/setup-terminal.sh | bash
+# Executar localmente
+./scripts/modules/terminal.sh
+
+# Ou via curl
+curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/modules/terminal.sh | bash
 ```
 
 #### VS Code
 
 ```bash
+# Configuração completa do VS Code
+./scripts/modules/vscode.sh
+
+# Ou apenas instalar extensões
+./scripts/tools/install-extensions.sh
+```
+
+````
+
+### 🎯 Setup Individual
+
+#### Terminal (WSL2 + ZSH)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/modules/terminal.sh | bash
+````
+
+#### VS Code
+
+```bash
 # Instalar extensões
-wget -O - https://raw.githubusercontent.com/hiago19/my-settings/main/vscode/install-extensions.sh | bash
+wget -O - https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/tools/install-extensions.sh | bash
 
 # Aplicar configurações
 curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/configs/vscode-settings.json -o ~/.config/Code/User/settings.json
