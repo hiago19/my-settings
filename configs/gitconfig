@@ -1,0 +1,335 @@
+# ~/.gitconfig - Configuração Global do Git
+# Autor: Bruno Hiago
+# Versão: 1.0
+
+[user]
+    # Configure com seus dados:
+    # git config --global user.name "Seu Nome Completo"
+    # git config --global user.email "seu.email@exemplo.com"
+    name = Bruno Hiago
+    email = bruno@exemplo.com
+
+[core]
+    # Editor padrão
+    editor = code --wait
+    
+    # Configuração de line endings
+    autocrlf = input
+    safecrlf = true
+    
+    # Ignorar mudanças de permissão de arquivo
+    filemode = false
+    
+    # Usar cores no terminal
+    ui = auto
+    
+    # Configuração de quebra de linha
+    eol = lf
+    
+    # Compressão
+    compression = 9
+    
+    # Pager customizado
+    pager = less -F -X
+
+[init]
+    # Branch padrão para novos repositórios
+    defaultBranch = main
+
+[pull]
+    # Estratégia de merge padrão
+    rebase = false
+
+[push]
+    # Modo de push padrão
+    default = simple
+    
+    # Push automático de tags
+    followTags = true
+
+[fetch]
+    # Limpar branches remotas automaticamente
+    prune = true
+
+[merge]
+    # Ferramenta de merge
+    tool = vscode
+    
+    # Incluir sumário na mensagem de merge
+    log = true
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+[diff]
+    # Ferramenta de diff
+    tool = vscode
+    
+    # Algoritmo de diff
+    algorithm = histogram
+    
+    # Detectar renomeações
+    renames = copies
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+# ================================================
+# Aliases Úteis
+# ================================================
+
+[alias]
+    # Status e informações
+    st = status
+    s = status --short
+    stat = status
+    
+    # Log e histórico
+    l = log --oneline --graph --decorate
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    last = log -1 HEAD
+    recent = log --oneline -10
+    
+    # Diff
+    d = diff
+    dc = diff --cached
+    ds = diff --staged
+    dt = difftool
+    
+    # Add e commit
+    a = add
+    aa = add .
+    ap = add -p
+    c = commit
+    cm = commit -m
+    ca = commit -am
+    amend = commit --amend
+    fix = commit --amend --no-edit
+    
+    # Branch
+    b = branch
+    ba = branch -a
+    bd = branch -d
+    bdd = branch -D
+    br = branch -r
+    
+    # Checkout
+    co = checkout
+    cob = checkout -b
+    com = checkout main
+    cod = checkout develop
+    master = checkout master
+    main = checkout main
+    
+    # Remote
+    r = remote
+    ra = remote add
+    rr = remote rm
+    rv = remote -v
+    rp = remote prune
+    rs = remote show
+    
+    # Fetch e pull
+    f = fetch
+    fa = fetch --all
+    fp = fetch --prune
+    p = pull
+    pr = pull --rebase
+    
+    # Push
+    ps = push
+    psu = push -u
+    pso = push origin
+    psf = push --force-with-lease
+    
+    # Rebase
+    rb = rebase
+    rbi = rebase -i
+    rbc = rebase --continue
+    rba = rebase --abort
+    
+    # Reset
+    unstage = reset HEAD --
+    uncommit = reset --soft HEAD~1
+    hard-reset = reset --hard HEAD
+    
+    # Stash
+    ss = stash
+    sp = stash pop
+    sl = stash list
+    sa = stash apply
+    sd = stash drop
+    
+    # Clean
+    clean-all = clean -fd
+    
+    # Submodules
+    sub = submodule
+    suba = submodule add
+    subi = submodule init
+    subu = submodule update
+    
+    # Worktree
+    wt = worktree
+    wta = worktree add
+    wtl = worktree list
+    wtr = worktree remove
+    
+    # Úteis
+    aliases = config --get-regexp alias
+    visual = !gitk
+    undo = checkout --
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep "^[[:lower:]]"
+    
+    # Informações do repositório
+    who = shortlog -sn --
+    contributors = shortlog -sn
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+    
+    # Limpeza
+    cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
+    
+    # Sincronização
+    sync = "!git checkout main && git pull origin main && git checkout - && git rebase main"
+    
+    # Release
+    release = "!f() { git checkout main && git pull origin main && git checkout develop && git pull origin develop && git checkout main && git merge develop && git push origin main && git tag $1 && git push origin $1; }; f"
+
+# ================================================
+# Configurações de Cores
+# ================================================
+
+[color]
+    ui = auto
+    
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+    
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+    
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+
+# ================================================
+# Configurações de URL
+# ================================================
+
+# SSH para HTTPS GitHub
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+# SSH para HTTPS GitLab
+[url "ssh://git@gitlab.com/"]
+    insteadOf = https://gitlab.com/
+
+# ================================================
+# Configurações de Commit
+# ================================================
+
+[commit]
+    # Template de commit (se existir)
+    # template = ~/.gitmessage
+    
+    # Assinar commits por padrão
+    gpgsign = false
+
+[tag]
+    # Ordenação de tags
+    sort = version:refname
+
+# ================================================
+# Configurações de Merge/Rebase
+# ================================================
+
+[rebase]
+    # Mostrar diff durante rebase interativo
+    instructionFormat = "%s [%an]"
+    
+    # Auto-squash commits marcados
+    autoSquash = true
+    
+    # Auto-stash before rebase
+    autoStash = true
+
+# ================================================
+# Configurações de Performance
+# ================================================
+
+[gc]
+    # Auto garbage collection
+    auto = 1
+    
+[pack]
+    # Threads para packing
+    threads = 0
+
+# ================================================
+# Configurações Específicas para Plataforma
+# ================================================
+
+# Windows
+[core]
+    # Ignorar diferenças de case no Windows
+    ignorecase = true
+    
+    # Configuração de symlinks no Windows
+    symlinks = false
+
+# ================================================
+# Configurações de Segurança
+# ================================================
+
+[credential]
+    # Helper para credenciais
+    helper = store
+
+[http]
+    # SSL verification
+    sslVerify = true
+    
+    # Post buffer para repos grandes
+    postBuffer = 524288000
+
+# ================================================
+# Git LFS (Large File Storage)
+# ================================================
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+# ================================================
+# Configurações Experimentais
+# ================================================
+
+[feature]
+    # Experimental features
+    manyFiles = true
+
+[index]
+    # Index version
+    version = 4
+
+# ================================================
+# Ignorar arquivos globalmente
+# ================================================
+
+[core]
+    # Arquivo de .gitignore global
+    excludesfile = ~/.gitignore_global
