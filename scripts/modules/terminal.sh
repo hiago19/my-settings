@@ -71,23 +71,29 @@ main() {
     # Copiar configurações
     print_step "Aplicando configurações do terminal"
     
-    # Aplicar .zshrc se existir
-    if [[ -f "$ZSHRC_FILE" ]]; then
-        backup_file "$HOME/.zshrc"
-        cp "$ZSHRC_FILE" "$HOME/.zshrc"
-        print_success "✅ .zshrc aplicado"
+    # Verificar se já tem configuração personalizada
+    if [[ -f "$HOME/.zshrc" ]] && grep -q "oh-my-zsh\|starship\|custom" "$HOME/.zshrc" 2>/dev/null; then
+        print_info "🔍 Configuração personalizada do ZSH detectada"
+        print_info "⏭️  Pulando aplicação de templates (configuração existente preservada)"
     else
-        print_warning "⚠️  Arquivo $ZSHRC_FILE não encontrado"
-    fi
-    
-    # Aplicar configuração Starship se existir
-    if [[ -f "$STARSHIP_CONFIG_FILE" ]]; then
-        ensure_directory "$HOME/.config"
-        backup_file "$HOME/.config/starship.toml"
-        cp "$STARSHIP_CONFIG_FILE" "$HOME/.config/starship.toml"
-        print_success "✅ Configuração Starship aplicada"
-    else
-        print_warning "⚠️  Arquivo $STARSHIP_CONFIG_FILE não encontrado"
+        # Aplicar .zshrc se existir
+        if [[ -f "$ZSHRC_FILE" ]]; then
+            backup_file "$HOME/.zshrc"
+            cp "$ZSHRC_FILE" "$HOME/.zshrc"
+            print_success "✅ .zshrc aplicado"
+        else
+            print_warning "⚠️  Arquivo $ZSHRC_FILE não encontrado"
+        fi
+        
+        # Aplicar configuração Starship se existir
+        if [[ -f "$STARSHIP_CONFIG_FILE" ]]; then
+            ensure_directory "$HOME/.config"
+            backup_file "$HOME/.config/starship.toml"
+            cp "$STARSHIP_CONFIG_FILE" "$HOME/.config/starship.toml"
+            print_success "✅ Configuração Starship aplicada"
+        else
+            print_warning "⚠️  Arquivo $STARSHIP_CONFIG_FILE não encontrado"
+        fi
     fi
     
     # Instalar ferramentas úteis
