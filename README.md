@@ -237,7 +237,7 @@ eval "$(fzf --zsh)"           # Fuzzy finder
 ### 🚀 Windows Apps
 
 ```powershell
-# Install essential apps (PowerShell as Admin)
+# Instalar apps essenciais (PowerShell como Admin)
 ./scripts/tools/install-dev-apps.ps1
 ```
 

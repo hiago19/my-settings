@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Configurações de segurança e tratamento de erros
+set -euo pipefail
+
 # =============================================================================
 # setup.sh - Orquestrador principal do sistema de configuração
 # Autor: Bruno Hiago  
@@ -26,7 +29,7 @@ show_main_menu() {
     echo -e "${CYAN}╚══════════════════════════════════════════════════════════╝${NC}"
     echo
     echo -e "${YELLOW}🔧 MÓDULOS DE CONFIGURAÇÃO:${NC}"
-    echo "  1) 🖥️  Setup Terminal (ZSH + Oh My Zsh + Starship)"
+    echo "  1) 🖥️ Setup Terminal (ZSH + Oh My Zsh + Starship)"
     echo "  2) 💻 Setup VS Code (Settings + Extensions + Themes)"
     echo "  3) 🚀 Setup Completo (Terminal + VS Code + Git)"
     echo

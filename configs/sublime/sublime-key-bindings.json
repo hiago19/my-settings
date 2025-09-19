@@ -1,0 +1,43 @@
+[
+    {
+        "keys": ["ctrl+alt+j"],
+        "command": "set_file_type",
+        "args": {"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"}
+    },
+    {
+        "keys": ["ctrl+alt+c"],
+        "command": "set_file_type",
+        "args": {"syntax": "Packages/C#/C#.sublime-syntax"}
+    },
+    {
+        "keys": ["ctrl+alt+t"],
+        "command": "set_file_type",
+        "args": {"syntax": "Packages/Text/Plain text.tmLanguage"}
+    },
+    {
+        "keys": ["ctrl+alt+p"],
+        "command": "set_file_type",
+        "args": { "syntax": "Packages/Python/Python.sublime-syntax" }
+    },
+    {
+        "keys": ["ctrl+alt+f"],
+        "command": "reindent",
+        "args": { "single_line": false }
+    },
+    {
+        "keys": ["ctrl+alt+d"],
+        "command": "duplicate_line"
+    },
+    {
+        "keys": ["ctrl+alt+shift+up"],
+        "command": "swap_line_up"
+    },
+    {
+        "keys": ["ctrl+alt+shift+down"],
+        "command": "swap_line_down"
+    },
+    {
+        "keys": ["ctrl+alt+enter"],
+        "command": "insert", "args": {"characters": "\n\n"}
+    }
+]

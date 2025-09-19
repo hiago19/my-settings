@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Configurações de segurança e tratamento de erros
+set -euo pipefail
+
 # colors.sh - ÚNICA fonte de cores e funções de output
 # Este arquivo deve ser carregado PRIMEIRO por todos os scripts
 # Versão: 1.0 - Dev Senior Architecture

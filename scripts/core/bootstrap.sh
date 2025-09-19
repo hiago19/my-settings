@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Configurações de segurança e tratamento de erros
+set -euo pipefail
+
 # bootstrap.sh - Sistema de carregamento robusto e validado
 # Este é o ÚNICO arquivo que deve ser carregado pelos scripts principais
 # Versão: 1.0 - Dev Senior Architecture

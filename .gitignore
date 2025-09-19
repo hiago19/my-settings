@@ -52,22 +52,9 @@ id_ed25519*
 # Configurações locais override
 *local
 *.local
+*.local.md
 .local/
 
-# GitHub
-.github
-
-# =============================================================================
-# IMPORTANTE:
-# 
-# ✅ COMMITADO (versionado):
-#    - .env.example (template)
-#    - scripts/
-#    - docs/
-#    - configs/ (exceto arquivos .local)
-#
-# ❌ NÃO COMMITADO (ignorado):
-#    - .env (configurações pessoais)
-#    - backups/
-#    - arquivos *.local
-# =============================================================================
+# GitHub - apenas ignorar arquivos locais específicos ou documentações gerais
+.github/*.local
+.github/*.md

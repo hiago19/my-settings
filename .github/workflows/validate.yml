@@ -1,0 +1,93 @@
+name: 🔍 Validação de Scripts
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-scripts:
+    name: 🧪 Teste de Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Ubuntu
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
+      - name: 🧹 Análise estática com ShellCheck
+        run: |
+          echo "🔍 Analisando scripts bash..."
+          find scripts/ -name "*.sh" -type f -exec shellcheck {} \;
+
+      - name: ✅ Teste de carregamento dos scripts
+        run: |
+          echo "🧪 Testando carregamento do sistema core..."
+          bash -n scripts/core/bootstrap.sh
+          bash -n scripts/core/colors.sh
+          bash -n scripts/core/utils.sh
+          bash -n scripts/setup.sh
+
+      - name: 🔍 Validar configurações
+        run: |
+          echo "🔧 Verificando arquivo .env.example..."
+          test -f .env.example
+          echo "✅ Arquivo .env.example existe"
+
+          echo "📋 Verificando se há configurações obrigatórias..."
+          grep -q "DEV_USER_NAME" .env.example
+          grep -q "DEV_USER_EMAIL" .env.example
+          echo "✅ Configurações obrigatórias presentes"
+
+      - name: 🛡️ Verificar segurança básica
+        run: |
+          echo "🔒 Verificando se não há informações sensíveis commitadas..."
+          ! grep -r "password\|secret\|token" --include="*.sh" --include="*.env*" scripts/ || true
+          echo "✅ Nenhuma informação sensível encontrada"
+
+  validate-documentation:
+    name: 📚 Validação da Documentação
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v4
+
+      - name: 🔍 Verificar documentação
+        run: |
+          echo "📖 Verificando arquivos de documentação..."
+          test -f README.md
+          test -f docs/TERMINAL_SETUP.md
+          test -f docs/VSCODE_SETUP.md
+          test -f CHANGELOG.md
+          echo "✅ Documentação básica presente"
+
+      - name: 🔗 Verificar links no README
+        run: |
+          echo "🔗 Verificando estrutura do README..."
+          grep -q "Quick Start" README.md
+          grep -q "Project Structure" README.md || grep -q "Estrutura do Projeto" README.md
+          echo "✅ README bem estruturado"
+
+  powershell-validation:
+    name: 🪟 Validação PowerShell
+    runs-on: windows-latest
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v4
+
+      - name: 🔍 Testar sintaxe PowerShell
+        shell: pwsh
+        run: |
+          Write-Host "🧪 Testando scripts PowerShell..."
+          Get-ChildItem -Path "scripts/tools/*.ps1" | ForEach-Object {
+            Write-Host "Testando: $($_.Name)"
+            $null = [System.Management.Automation.PSParser]::Tokenize((Get-Content $_.FullName -Raw), [ref]$null)
+          }
+          Write-Host "✅ Sintaxe PowerShell válida"

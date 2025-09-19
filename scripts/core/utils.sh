@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Configurações de segurança e tratamento de erros
+set -euo pipefail
+
 # utils.sh - Funções utilitárias puras (sem colors)
 # Este arquivo deve ser carregado APÓS colors.sh
 # Versão: 1.0 - Dev Senior Architecture
