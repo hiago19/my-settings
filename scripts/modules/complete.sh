@@ -2,7 +2,7 @@
 
 # setup-complete.sh - Orquestrador principal do setup completo
 # Autor: Bruno Hiago
-# Versão: 3.0 - Dev Senior Architecture
+# Versão: 3.0 - Modular com bootstrap system
 
 # =============================================================================
 # CARREGAMENTO DO SISTEMA
@@ -25,8 +25,8 @@ source "$SCRIPT_DIR/../core/paths.sh"
 
 # Lista de módulos disponíveis (ordem de execução)
 readonly MODULES=(
-    "terminal:setup-terminal.sh:Terminal Tools e ZSH"
-    "vscode:setup-vscode.sh:Visual Studio Code"
+    "terminal:terminal.sh:Terminal Tools e ZSH"
+    "vscode:vscode.sh:Visual Studio Code"
     "extensions:install-extensions.sh:Extensões VS Code"
 )
 
@@ -246,7 +246,7 @@ show_menu() {
 setup_terminal() {
     print_header "🖥️  SETUP DO TERMINAL"
     
-    local terminal_script="$SCRIPT_DIR/setup-terminal.sh"
+    local terminal_script="$SCRIPT_DIR/modules/terminal.sh"
     
     if [[ -f "$terminal_script" ]]; then
         print_info "Executando setup do terminal..."
@@ -259,7 +259,7 @@ setup_terminal() {
             return 1
         fi
     else
-        print_error "Script setup-terminal.sh não encontrado"
+        print_error "Script terminal.sh não encontrado"
         print_info "Caminho esperado: $terminal_script"
         return 1
     fi
@@ -268,9 +268,9 @@ setup_terminal() {
 # Setup do VS Code (chama script específico)
 setup_vscode() {
     print_header "💻 SETUP DO VS CODE"
-    
-    local vscode_script="$SCRIPT_DIR/setup-vscode.sh"
-    
+
+    local vscode_script="$SCRIPT_DIR/modules/vscode.sh"
+
     if [[ -f "$vscode_script" ]]; then
         print_info "Executando setup do VS Code..."
         chmod +x "$vscode_script"
@@ -282,7 +282,7 @@ setup_vscode() {
             return 1
         fi
     else
-        print_error "Script setup-vscode.sh não encontrado"
+        print_error "Script vscode.sh não encontrado"
         print_info "Caminho esperado: $vscode_script"
         return 1
     fi
@@ -343,12 +343,12 @@ setup_terminal() {
     print_step "Iniciando setup do terminal..."
     
     # Verificar se script existe
-    if [ -f "scripts/setup-terminal.sh" ]; then
-        chmod +x scripts/setup-terminal.sh
-        ./scripts/setup-terminal.sh
+    if [ -f "scripts/modules/terminal.sh" ]; then
+        chmod +x scripts/modules/terminal.sh
+        ./scripts/modules/terminal.sh
     else
         print_info "Baixando script do terminal..."
-        curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/setup-terminal.sh | bash
+        curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/modules/terminal.sh | bash
     fi
     
     print_status "Setup do terminal concluído"
@@ -373,12 +373,12 @@ setup_vscode() {
     fi
     
     # Instalar extensões
-    if [ -f "vscode/install-extensions.sh" ]; then
-        chmod +x vscode/install-extensions.sh
-        ./vscode/install-extensions.sh
+    if [ -f "scripts/tools/install-extensions.sh" ]; then
+        chmod +x scripts/tools/install-extensions.sh
+        ./scripts/tools/install-extensions.sh
     else
         print_info "Baixando e instalando extensões..."
-        curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/install-extensions.sh | bash
+        curl -fsSL https://raw.githubusercontent.com/hiago19/my-settings/main/scripts/tools/install-extensions.sh | bash
     fi
     
     # Aplicar configurações

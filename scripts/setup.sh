@@ -29,7 +29,7 @@ show_main_menu() {
     echo -e "${CYAN}╚══════════════════════════════════════════════════════════╝${NC}"
     echo
     echo -e "${YELLOW}🔧 MÓDULOS DE CONFIGURAÇÃO:${NC}"
-    echo "  1) 🖥️ Setup Terminal (ZSH + Oh My Zsh + Starship)"
+    echo "  1) 🖥️  Setup Terminal (ZSH + Oh My Zsh + Starship)"
     echo "  2) 💻 Setup VS Code (Settings + Extensions + Themes)"
     echo "  3) 🚀 Setup Completo (Terminal + VS Code + Git)"
     echo
@@ -38,13 +38,14 @@ show_main_menu() {
     echo "  5) 💾 Backup das Configurações"
     echo "  6) 🔄 Restaurar Configurações"
     echo "  7) 🔍 Validar Sistema"
+    echo "  V) 📊 Verificar Versões das Ferramentas"
     echo
     echo -e "${YELLOW}ℹ️  INFORMAÇÕES:${NC}"
     echo "  8) 📋 Ver Configurações Atuais"
     echo "  9) 📖 Ajuda e Documentação"
     echo "  0) ❌ Sair"
     echo
-    echo -e "${BLUE}Digite sua escolha (0-9):${NC} "
+    echo -e "${BLUE}Digite sua escolha (0-9, V):${NC} "
 }
 
 show_current_config() {
@@ -254,6 +255,9 @@ main() {
                 ;;
             7)
                 execute_tool "validate-system.sh" "Validação do Sistema"
+                ;;
+            [vV])
+                execute_tool "check-versions.sh" "Verificação de Versões"
                 ;;
             8)
                 show_current_config
